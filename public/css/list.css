@@ -1,0 +1,130 @@
+/* List.blade */
+
+/* Listの文字表示 */
+.listtag{
+  position:relative;
+  right: 400px;
+}
+
+/* Listキーワード検索 */
+.search{
+  position:relative;
+  left: 500px;
+  width: 300px;
+  height: 10px;
+  top:30px;
+  font-weight: bold;
+}
+
+/* Listプルダウンメーカー名 */
+.form-search{
+  position:relative;
+  left: 100px;
+  width: 300px;
+  height: 10px;
+  top:30px;
+  font-weight: bold;
+}
+
+/* Listのテーブル表示 */
+.listtable{
+  position: relative;
+  top: 100px;
+  bottom:30px;
+}
+
+/* キーワード検索ボタン */
+.good1{
+  position: relative;
+  left: 200px;
+  bottom:37px;
+}
+
+/* Edit.blade */
+
+/* Editの記入欄 */
+.form-edit{ 
+   position:relative;
+   width: 100%;
+   margin:0 auto;
+   padding: 50px;
+   width: 600px;
+   font-weight: bold;
+}
+
+/* Editの選択されたナンバー*/
+.edit-title{
+  position:relative;
+  left:500px;
+  font-weight: bold;
+}
+
+/* 登録ボタン */
+.edit-bottom{
+  position:relative;
+  width: 100%;
+  margin:0 auto;
+  padding: 50px;
+  width: 600px;
+}
+
+/* Editの戻るボタン */
+.editback{
+  position: relative;
+  top: 500px;
+  bottom: 100px;
+  left: 900px;
+  right: 200px
+}
+
+/* Edit更新&キャンセルボタン */
+.edit-bottom{
+  position: relative;
+  bottom: 100px;
+  left: 300px;
+  right: 200px
+}
+
+/* Create.blade */
+
+/* createの文字表示 */
+.createtag{
+  position:relative;
+  right: 200px;
+}
+
+/* Createの記入欄 */
+.createtable{
+  position:relative;
+  width: 100%;
+  left: 370px;
+  padding: 50px;
+  width: 600px;
+  font-weight: bold;
+}
+
+/* Createの登録&キャンセルボタン */
+.create-bottom{
+  position: relative;
+  bottom: 13px;
+  left: 650px;
+  right: 200px
+}
+
+/* Createのcreateの戻るボタン */
+.createback{
+  position: relative;
+  bottom: 50px;
+  left: 900px;
+  right: 200px
+}
+
+/* detail.blade */
+
+/* detailのcreateの戻るボタン */
+.detailback{
+  position: relative;
+  top: 0px;
+  left: 1150px;
+  right: 200px
+}
