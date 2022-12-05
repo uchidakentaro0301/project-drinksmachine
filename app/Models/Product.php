@@ -44,16 +44,20 @@ class Product extends Model
     }
 
 // 登録画面
-    public function createProduct($product) {
+    public function createProduct($product,$file_name) {
         // 登録処理
+    $path = 'storage/'. $file_name;
+
         DB::table('products')->insert([
             'company_id' => $product->company_id,
             'product_name' => $product->product_name,
             'price' => $product->price,
             'stock' => $product->stock,
             'comment' => $product->comment,
+            'img_path'  => $path,
         ]);
     }
+
  //編集画面
  public function getEdit($id) {
     // Productテーブルからデータを取得

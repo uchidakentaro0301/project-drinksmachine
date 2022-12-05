@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <h2>商品登録画面</h2>
-        <form method="POST" action="{{ route('store') }}" onSubmit="return checkSubmit()">
+        <form method="POST" action="{{ route('store') }}" onSubmit="return checkSubmit()" enctype="multipart/form-data">
         @csrf
 
             <!-- 商品名登録 -->
@@ -61,11 +61,11 @@
                 </div>
 
                 <!-- 画像登録 -->
-                <form method="POST" action="/upload" enctype="multipart/form-data">
+                <!-- <form method="POST" action="/upload" enctype="multipart/form-data"> -->
                 @csrf
                 <input type="file" name="image">
-                <button>アップロード</button>
-                </form> 
+                <!-- <button>アップロード</button> -->
+                <!-- </form>  -->
             </div>
 
             <!-- 登録ボタン -->

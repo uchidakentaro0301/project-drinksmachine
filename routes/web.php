@@ -31,9 +31,6 @@ Route::post('/create/store', 'ProductController@exeStore')->name('store');
 // 検索機能のルーティング
 Route::post('/search', 'ProductController@Search')->name('search');
 
-// 画像登録のルーティング
-Route::post('/upload/create', 'ProductController@Upload')->name('upload');
-
 //詳細画面を表示ルーティング
 Route::get('/detail/{id}', 'ProductController@showDetail')->name('detail');
 

@@ -50,46 +50,30 @@ public function Search(Request $request){
     }
 
 //登録する
-    public function exeStore(CreateRequest $request) {
+public function exeStore(CreateRequest $request) {
 
-        //トランザクション開始
-        DB::beginTransaction();
-        try {
-            // 登録処理呼び出し
-            $model = new Product();
-            $model->createProduct($request);
-            DB::commit();
-        } catch (\Exception $e) {
-            DB::rollback();
-            return back();
-        }
-    
-        // 処理が完了したらcreateにリダイレクト
-        return redirect(route('create'));
+    // アップロードされた画像を取得
+    // $file_name = $request->file('image')->getClientOriginalName();
+    $file_name = 'test';
+
+    // 取得したファイル名で保存
+    // $request->file('image')->storeAs('public/storage' , $file_name);
+
+    //トランザクション開始
+    DB::beginTransaction();
+    try {
+        // 登録処理呼び出し
+        $model = new Product();
+        $model->createProduct($request,$file_name);
+        DB::commit();
+    } catch (\Exception $e) {
+        DB::rollback();
+        return back();
     }
 
-// 画像アップロード
-    public function upload(Request $request){
-        // ディレクトリ名
-        $dir = 'sample';
-
-        // アップロードされた画像を取得
-        $file_name = $request->file('image')->getClientOriginalName();
-
-        // sampleディレクトリに画像を保存
-        $request->file('image')->store('public/' . $dir);
-
-        // 取得したファイル名で保存
-        $request->file('image')->storeAs('public/' . $dir, $file_name);
-
-        // ファイル情報をDBに保存
-        $image = new Image();
-        $image->name = $file_name;
-        $image->path = 'storage/' . $dir . '/' . $file_name;
-        $image->save();
-
-        return redirect (route('list'));
-    }
+    // 処理が完了したらcreateにリダイレクト
+    return redirect(route('create'));
+}
 
 // 詳細画面
 public function showDetail($id){   
@@ -115,7 +99,7 @@ public function showEdit($id){
 
 // 更新する
 public function exeupdate(CreateRequest $request) {
-
+dd($request);
     // トランザクション開始
     DB::beginTransaction();
     try {
