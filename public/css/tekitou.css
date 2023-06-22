@@ -8,21 +8,18 @@
 
 .form-search{
   position:relative;
-  right: 1000px;
-}
-
-h2{
-  color:red !important;
+  left: 800px;
+  width: 300px;
+  height: 10px;
+  top:50px;
+  font-weight: bold;
 }
 
 /* Listキーワード検索 */
 .search{
   position:relative;
-  left: 500px;
-  width: 300px;
-  height: 10px;
-  top:30px;
-  font-weight: bold;
+  left: 200px;
+  top:-7px;
 }
 
 /* Listプルダウンメーカー名 */
@@ -31,7 +28,7 @@ h2{
   left: 100px;
   width: 300px;
   height: 10px;
-  top:30px;
+  top:0px;
   font-weight: bold;
 }
 
@@ -45,8 +42,9 @@ h2{
 /* キーワード検索ボタン */
 .good1{
   position: relative;
-  left: 200px;
+  left: 100px;
   bottom:37px;
+  top:-45px;
 }
 
 /* Edit.blade */
@@ -136,4 +134,38 @@ h2{
   top: 0px;
   left: 1150px;
   right: 200px
+}
+
+.kagen{
+  position: relative;
+  top: -30px;
+  left: 193px
+}
+
+.nedan{
+  position: relative;
+  right: 0px;
+  top: 58px;
+}
+
+.pop{
+  position: relative;
+  left: 50px;
+  top: 35px;
+}
+
+.kako{
+  position: relative;
+  left: 80px;
+}
+
+.searchall{
+  position: relative;
+  top:50px;
+}
+
+.pull{
+  position:relative;
+  right: 200px;
+  top:50px;
 }

@@ -46,7 +46,7 @@ class Product extends Model
 // 登録画面
     public function createProduct($product,$file_name) {
         // 登録処理
-    $path = 'storage/'. $file_name;
+        $path = 'storage/'. $file_name;
 
         DB::table('products')->insert([
             'company_id' => $product->company_id,
@@ -80,5 +80,37 @@ public function Search($keyword) {
         ->get();
 
     return $products;
+}
+
+// Step8の範囲
+
+//ajax一覧画面
+public function getProducts(){
+    return DB::table('products')
+    ->join('companies','products.company_id','=','companies.id')
+    ->select('products.*','companies.company_name')
+    ->get();
+}
+
+public function searchProducts($word,$selectedCompany,$upperPriceLimit,$lowerPriceLimit,$upperStockLimit,$lowerStockLimit,$pressedButton,$sortToggle){
+    return DB::table('products')
+            ->join('companies','products.company_id','=','companies.id')
+            ->select('products.*','companies.company_name')
+            ->where([
+                ['product_name', 'LIKE', "%$word%"],
+                ['companies.company_name', 'LIKE', "$selectedCompany"],
+                ])
+            ->whereBetween('products.price',[$lowerPriceLimit,$upperPriceLimit])
+            ->whereBetween('products.stock',[$lowerStockLimit,$upperStockLimit])
+            ->orderBy($pressedButton,$sortToggle)
+            ->get();
+}
+
+public function getProductsById($id){
+    return DB::table('products')
+            ->join('companies','products.company_id','=','companies.id')
+            ->select('products.*','companies.company_name')
+            ->where('products.id','=',$id)
+            ->first();
 }
 }

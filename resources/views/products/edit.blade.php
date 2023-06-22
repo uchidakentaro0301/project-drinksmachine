@@ -1,4 +1,4 @@
-@extends('layouts.listLayout')
+@extends('layouts.ajaxLayout')
 @section('title', '編集画面')
 
 @section('content')
@@ -31,7 +31,6 @@
     </span>
   @endif
  </div>
-
 <!-- 価格登録 -->
 <div class="form-price">
     <label for="price">価格</label>
@@ -41,7 +40,6 @@
             <p>{{ $errors->first('price') }}</p>
     @endif
 </div>
-
 <!-- 在庫数登録 -->
 <div class="form-stock">
     <label for="stock">在庫数登録</label>
@@ -51,7 +49,6 @@
             <p>{{ $errors->first('stock') }}</p>
     @endif
 </div>
-
 <!-- コメント -->
 <div class="form-coments">
     <label for="comment">コメント</label>
@@ -77,7 +74,6 @@
       </div>
 </div>
 </div>
-
 <!-- 確認表示 -->
 <script>
 function checkSubmit(){
@@ -88,5 +84,4 @@ function checkSubmit(){
     }
 }
 </script>
-
 @endsection

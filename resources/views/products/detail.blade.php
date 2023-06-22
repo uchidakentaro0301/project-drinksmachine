@@ -1,4 +1,4 @@
-@extends('layouts.listLayout')
+@extends('layouts.ajaxLayout')
 @section('title', '詳細画面')
 
 @section('content')
