@@ -34,7 +34,7 @@ class HomeController extends Controller
     public function ajaxGet(){ 
 
         $products = new Product;
-        $selectedProducts = $products -> getlist();
+        $selectedProducts = $products -> getList();
 
         return response()->json($selectedProducts); 
     }
@@ -42,14 +42,21 @@ class HomeController extends Controller
     //検索機能
     public function ajaxSearch(Request $request){
 
+        $products = new Product;
         $word = $request->word;
         $selectedCompany = $request->company;
         $upperPriceLimit = $request->upperPriceLimit;
         $lowerPriceLimit = $request->lowerPriceLimit;
         $upperStockLimit = $request->upperStockLimit;
         $lowerStockLimit = $request->lowerStockLimit;
+        $lowerStockLimit = $request->lowerStockLimit;
+        $sortToggle = 'asc';
 
-        $selectedProducts = $products->searchProducts($word,$selectedCompany,$upperPriceLimit,$lowerPriceLimit,$upperStockLimit,$lowerStockLimit);
+        
+
+        $selectedProducts = $products->searchProducts($word,$selectedCompany,$upperPriceLimit,$lowerPriceLimit,$upperStockLimit,$lowerStockLimit,$sortToggle);
+        // $sortToggle
+        // dd($selectedProducts);
         return response()->json($selectedProducts);
     }
 
@@ -92,6 +99,7 @@ class HomeController extends Controller
         return response()->json($selectedProducts);
     }
 
+    // 削除
     public function ajaxDelete(Request $request){
         $id = $request->id;
         $word = $request->word;

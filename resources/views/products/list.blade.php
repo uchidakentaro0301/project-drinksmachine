@@ -38,6 +38,15 @@
           <input id="lowerStockLimit" type="number" name="lowerStockLimit" style="width:100px" min="0" max="9999">
         </div>
     </div>
+
+<!-- 昇順ボタン -->
+<div class = "turn-button">
+  <button type="button" class="asc">昇順</button>
+
+  <!-- 降順ボタン -->
+  <button type="button" class= "DESC">降順</button>
+</div>
+
 <!-- 検索フォーム -->
 <div class = "searchall">
     <div class="search">

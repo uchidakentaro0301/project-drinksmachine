@@ -20,7 +20,6 @@ $(function () {
   .done(function (data){ 
     $('#productList').empty(); //#productListを空にするために”.empty”を使用している
     $.each(data, function(key, value){  //$.each()メソッドを使用して繰り返し処理を行っている ここからエラー！？
-      console.log(value);
       // if(value.product_image  === null){  //Nullであれば”img変数”に”No Data”の値を代入する
       //   img = "No Data";
       // }else{
@@ -39,17 +38,17 @@ $(function () {
     });
 
 
-//検索
-//on('click'はイベントハンドラー　押された時に実行される
+ //検索
+ //on('click'はイベントハンドラー　押された時に実行される
   $('#ajaxbnt').on('click', function (){  
-    console.log('ggsd')
+    console.log('ggsd');
     $.ajax({
       headers:{
         'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
       },
       url:'ajaxSearch',
       method:'POST',
-      dataType:'text',
+      dataType:'json',
       data:{
         "test":'cof',
         "word":$('#keyword').val(), //val=要素の値を取得する
@@ -63,18 +62,19 @@ $(function () {
     .done(function (data){
       $('#productList').empty();
       $.each(data, function(key, val) {
-        html = `
+        console.log(val);
+            var html = `
             <tr class="item" data_product_keyword:"${val.product_name}" data_company_keyword:"${val.company_name}">
             <td>${val.id}</td>
-            <td><img src="/storage/img_path/" . ${val.img_path}></td>
+            <td><img src="/storage/img_path/" . ></td>
             <td class="product_name">${val.product_name}</td>
             <td>${val.price}</td>
             <td>${val.stock}</td>
             <td>${val.company_name}</td>
             <td><button id="detail" onclick="clickDetail()">詳細表示</button></td>
-            <td><form method="POST" action="delete/{id}">@csrf<input type="submit" id="delete" value="削除"></form></td>
-            </tr>`
-        $("#showAllProduct").append(html);
+            <td><form method="POST" action="delete/{id}"><input type="submit" id="delete" value="削除"></form></td>
+            </tr>`;
+        $("#productList").append(html);
     });
 
       //テスト

@@ -82,6 +82,7 @@ public function Search($keyword) {
     return $products;
 }
 
+
 // Step8の範囲
 
 //ajax一覧画面
@@ -92,17 +93,16 @@ public function getProducts(){
     ->get();
 }
 
-public function searchProducts($word,$selectedCompany,$upperPriceLimit,$lowerPriceLimit,$upperStockLimit,$lowerStockLimit,$pressedButton,$sortToggle){
+public function searchProducts($word,$selectedCompany,$upperPriceLimit,$lowerPriceLimit,$upperStockLimit,$lowerStockLimit){
     return DB::table('products')
             ->join('companies','products.company_id','=','companies.id')
             ->select('products.*','companies.company_name')
-            ->where([
-                ['product_name', 'LIKE', "%$word%"],
-                ['companies.company_name', 'LIKE', "$selectedCompany"],
-                ])
+            ->where('product_name', 'LIKE', '%'.$word.'%')
+            ->where('companies.id', '=', $selectedCompany)
             ->whereBetween('products.price',[$lowerPriceLimit,$upperPriceLimit])
             ->whereBetween('products.stock',[$lowerStockLimit,$upperStockLimit])
-            ->orderBy($pressedButton,$sortToggle)
+            // ->orderBy($pressedButton,$sortToggle)
+            // ->orderBy('id','DESC')
             ->get();
 }
 
